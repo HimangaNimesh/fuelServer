@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-const UserSchema = mongoose.Schema({
-    name : {
+const StationSchema = mongoose.Schema({
+    stationName : {
         type : String,
         required : true,
     },
@@ -18,9 +18,22 @@ const UserSchema = mongoose.Schema({
     password:{
         type:String,
         required:true,
+    },
+    regNumber : {
+        type : String,
+        required : true,
+        unique : true
+    },
+    district : {
+        type : String,
+        required : true
+    },
+    city : {
+        type : String,
+        required : true
     }
 }, {
     timestamps:true
 })
 
-export default mongoose.model("User", UserSchema)
+export default mongoose.model("Station", StationSchema)
