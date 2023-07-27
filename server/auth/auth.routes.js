@@ -1,9 +1,12 @@
 import express from 'express'
-import { signup } from './auth.controller.js'
+import { signupStation, signupUser } from './auth.controller.js'
 
 const router = express.Router()
 
 //CREATE A USER
-router.post("/signup", signup)
+router.post("/user/signup", signupUser)
+
+//CREATE A STATION
+router.post("/station/signup", signupStation)
 
 export default router
