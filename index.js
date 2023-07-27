@@ -1,8 +1,9 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import UserRoutes from './User/User.routes.js'
-import StationRoutes from './Station/Station.routes.js'
+import UserRoutes from './server/User/User.routes.js'
+import StationRoutes from './server/Station/Station.routes.js'
+import AuthRoutes from './server/auth/auth.routes.js'
 
 const app = express()
 dotenv.config()
@@ -15,7 +16,9 @@ const connect = () => {
         throw error
     })
 }
+app.use(express.json())
 
+app.use("/api/auth", AuthRoutes)
 app.use("/api/users", UserRoutes)
 app.use("/api/stations", StationRoutes)
 
