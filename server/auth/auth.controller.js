@@ -20,11 +20,19 @@ export const signupStation = async (req, res, next) => {
     try {
       const salt = bcryptjs.genSaltSync(10);
       const hash = bcryptjs.hashSync(req.body.password, salt);
-      const newUser = new StationModel({ ...req.body, password: hash });
+      const newStation = new StationModel({ ...req.body, password: hash });
         
-      await newUser.save();
+      await newStation.save();
       res.status(200).json("Station has been created!");
     } catch (error) {
         next(error)
     }
 };
+
+export const signin = async () => {
+  try {
+    
+  } catch (error) {
+    
+  }
+}
