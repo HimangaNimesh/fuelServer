@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import UserRoutes from './server/User/User.routes.js'
 import StationRoutes from './server/Station/Station.routes.js'
 import AuthRoutes from './server/auth/auth.routes.js'
+import cookieParser from 'cookie-parser'
 
 const app = express()
 dotenv.config()
@@ -17,7 +18,7 @@ const connect = () => {
     })
 }
 app.use(express.json())
-
+app.use(cookieParser())
 app.use("/api/auth", AuthRoutes)
 app.use("/api/users", UserRoutes)
 app.use("/api/stations", StationRoutes)
